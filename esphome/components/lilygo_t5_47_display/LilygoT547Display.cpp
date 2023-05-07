@@ -11,6 +11,7 @@ static const char *const TAG = "lilygo_t5_47_display";
 float LilygoT547Display::get_setup_priority() const { return esphome::setup_priority::LATE; }
 
 void LilygoT547Display::set_clear_screen(bool clear) { this->clear_ = clear; }
+void LilygoT547Display::set_clear_black_screen(bool clear_black) { this->clear_black_ = clear_black; }
 void LilygoT547Display::set_power_off_delay_enabled(bool power_off_delay_enabled) {
   this->power_off_delay_enabled_ = power_off_delay_enabled;
 }
@@ -46,6 +47,13 @@ void LilygoT547Display::update() {
 
 void LilygoT547Display::clear() {
   epd_poweron();
+  epd_fullclear(&hl, this->temperature_);
+  epd_poweroff();
+}
+
+void LilygoT547Display::clear_black() {
+  epd_poweron();
+  epd_hl_set_all_black(&hl);
   epd_fullclear(&hl, this->temperature_);
   epd_poweroff();
 }
