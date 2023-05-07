@@ -53,7 +53,6 @@ void LilygoT547Display::clear() {
 
 void LilygoT547Display::clear_black() {
   epd_poweron();
-  epd_hl_set_all_black(&hl);
   epd_fullclear(&hl, this->temperature_);
   epd_poweroff();
 }
