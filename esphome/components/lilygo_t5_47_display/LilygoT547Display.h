@@ -44,7 +44,6 @@ class LilygoT547Display : public PollingComponent, public display::DisplayBuffer
   void clear_black();
   void flush_screen_changes();
   void set_all_white();
-  void set_all_black();
   void poweron();
   void poweroff();
   void on_shutdown() override;
