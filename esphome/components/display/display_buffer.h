@@ -103,6 +103,8 @@ class DisplayBuffer {
   virtual void fill(Color color);
   /// Clear the entire screen by filling it with OFF pixels.
   void clear();
+  /// Clear the entire screen by filling it with ON pixels.
+  void clear_black();
 
   /// Get the width of the image in pixels with rotation applied.
   int get_width();
